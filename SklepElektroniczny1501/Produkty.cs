@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SklepElektroniczny1501
@@ -28,7 +21,12 @@ namespace SklepElektroniczny1501
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.RowIndex != -1)
+            {
+                ProduktyEdycja producktEdycja = new ProduktyEdycja(e.RowIndex);
+                producktEdycja.Show();
+                Hide();
+            }
         }
 
         private void Do_Sklepu_Click(object sender, EventArgs e)
@@ -36,6 +34,14 @@ namespace SklepElektroniczny1501
             Sklep sklep = new Sklep();
             sklep.Show();
             Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ProduktyEdycja producktEdycja = new ProduktyEdycja(-1);
+            producktEdycja.Show();
+            Hide();
+
         }
     }
 }
