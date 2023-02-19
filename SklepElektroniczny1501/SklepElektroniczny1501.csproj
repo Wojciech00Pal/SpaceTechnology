@@ -66,6 +66,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Space_TechnologyDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Space_TechnologyDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Zamowienia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +126,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Space_TechnologyDataSet.xsc">
+      <DependentUpon>Space_TechnologyDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Space_TechnologyDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Space_TechnologyDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Space_TechnologyDataSet.xss">
+      <DependentUpon>Space_TechnologyDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
