@@ -56,9 +56,11 @@
             this.dataGridView1.Location = new System.Drawing.Point(351, 119);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 53;
             this.dataGridView1.Size = new System.Drawing.Size(603, 410);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -75,6 +77,7 @@
             this.numerzamowieniaDataGridViewTextBoxColumn.HeaderText = "numer_zamowienia";
             this.numerzamowieniaDataGridViewTextBoxColumn.MinimumWidth = 7;
             this.numerzamowieniaDataGridViewTextBoxColumn.Name = "numerzamowieniaDataGridViewTextBoxColumn";
+            this.numerzamowieniaDataGridViewTextBoxColumn.ReadOnly = true;
             this.numerzamowieniaDataGridViewTextBoxColumn.Width = 130;
             // 
             // datazamowieniaDataGridViewTextBoxColumn
@@ -83,6 +86,7 @@
             this.datazamowieniaDataGridViewTextBoxColumn.HeaderText = "data_zamowienia";
             this.datazamowieniaDataGridViewTextBoxColumn.MinimumWidth = 7;
             this.datazamowieniaDataGridViewTextBoxColumn.Name = "datazamowieniaDataGridViewTextBoxColumn";
+            this.datazamowieniaDataGridViewTextBoxColumn.ReadOnly = true;
             this.datazamowieniaDataGridViewTextBoxColumn.Width = 130;
             // 
             // zamowienieBindingSource

@@ -31,5 +31,18 @@ namespace SklepElektroniczny
             sklep.Show();
             Hide();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > 0)
+            {
+                ZamowieniaEdycja zamowieniaEdycja = new ZamowieniaEdycja(Convert.ToInt32(dataGridView1[1, e.RowIndex].Value));
+                zamowieniaEdycja.Show();
+                this.Hide();
+            }
+        }
+
+     
+
     }
 }
