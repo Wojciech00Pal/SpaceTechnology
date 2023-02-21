@@ -34,7 +34,7 @@ namespace SklepElektroniczny
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > 0)
+            if (e.RowIndex > -1)
             {
                 ZamowieniaEdycja zamowieniaEdycja = new ZamowieniaEdycja(Convert.ToInt32(dataGridView1[1, e.RowIndex].Value));
                 zamowieniaEdycja.Show();
@@ -42,7 +42,14 @@ namespace SklepElektroniczny
             }
         }
 
-     
-
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                ZamowieniaEdycja zamowieniaEdycja = new ZamowieniaEdycja(Convert.ToInt32(dataGridView1[1, e.RowIndex].Value));
+                zamowieniaEdycja.Show();
+                this.Hide();
+            }
+        }
     }
 }

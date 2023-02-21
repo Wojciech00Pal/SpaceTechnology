@@ -21,7 +21,6 @@ namespace SklepElektroniczny1501
             InitializeComponent();
             textBox1.Text = string.Format("{0:000}", id);
             this.id = id;
-            
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -56,12 +55,6 @@ namespace SklepElektroniczny1501
             }
             textBox2.Text = sum.ToString("N2", new CultureInfo("fr-FR"));
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == dataGridView1.Rows.Count - 2)
@@ -111,8 +104,14 @@ namespace SklepElektroniczny1501
                         {
                             command.Parameters.AddWithValue("@zam_id", id);
                             DataTable dataTable = new DataTable();
-                            dataTable.Load(command.ExecuteReader());
-                            dataGridView1.DataSource = dataTable;
+                            try
+                            {
+                                dataTable.Load(command.ExecuteReader());
+                                dataGridView1.DataSource = dataTable;
+                            }catch(Exception er)
+                            {
+
+                            }
                         }
                         Sum(dataGridView1);
                     }
@@ -124,6 +123,47 @@ namespace SklepElektroniczny1501
                 }
 
             }
+        }
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                object value = row.Cells[2].Value;
+                object value2 = row.Cells[3].Value;
+                if (value != null && int.TryParse(value.ToString(), out int prodId) &&
+                    value2 != null && int.TryParse(value.ToString(), out int zamId))
+                {
+                    ZamowieniePozycjeEdycja producktEdycja = new ZamowieniePozycjeEdycja(prodId, zamId);
+                    producktEdycja.Show();
+                    Hide();
+                }
+
+            }
+
+        }
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                object value = row.Cells[2].Value;
+                object value2 = row.Cells[1].Value;
+                if (value != null && int.TryParse(value.ToString(), out int zamId) &&
+                    value2 != null && int.TryParse(value2.ToString(), out int prodId))
+                {
+                    ZamowieniePozycjeEdycja producktEdycja = new ZamowieniePozycjeEdycja(prodId, zamId);
+                    producktEdycja.Show();
+                    Hide();
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Sklep sklep = new Sklep();
+            sklep.Show();
+            this.Hide();
         }
     }
 }

@@ -43,5 +43,12 @@ namespace SklepElektroniczny1501
             Hide();
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Sklep sklep = new Sklep();
+            sklep.Show();
+            this.Hide();
+        }
     }
 }

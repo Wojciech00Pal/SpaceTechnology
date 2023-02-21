@@ -40,6 +40,7 @@
             this.space_TechnologyDataSet1 = new SklepElektroniczny1501.Space_TechnologyDataSet();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.space_TechnologyDataSet1)).BeginInit();
@@ -47,18 +48,19 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(992, 788);
+            this.button1.Location = new System.Drawing.Point(933, 421);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 48);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Zapisz";
+            this.button1.Text = "Sklep";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 768);
+            this.label3.Location = new System.Drawing.Point(78, 437);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(110, 16);
@@ -78,13 +80,14 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(176, 62);
+            this.dataGridView1.Location = new System.Drawing.Point(209, 71);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 53;
-            this.dataGridView1.Size = new System.Drawing.Size(813, 429);
+            this.dataGridView1.Size = new System.Drawing.Size(726, 220);
             this.dataGridView1.TabIndex = 4;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             // 
             // label1
@@ -115,7 +118,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(133, 765);
+            this.textBox2.Location = new System.Drawing.Point(195, 434);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(166, 22);
             this.textBox2.TabIndex = 9;
@@ -123,7 +126,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 495);
+            this.label4.Location = new System.Drawing.Point(12, 343);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(1083, 16);
             this.label4.TabIndex = 10;
@@ -131,11 +134,21 @@
     "z zmienic ilosc kliknik na wiersz z produktem a zostaniesz przekierowany na okno" +
     " edycji porduktu";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(806, 295);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(129, 16);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "*zapis automatyczny";
+            // 
             // ZamowieniaEdycja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1137, 852);
+            this.ClientSize = new System.Drawing.Size(1145, 524);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -168,5 +181,6 @@
         private Space_TechnologyDataSet space_TechnologyDataSet1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
