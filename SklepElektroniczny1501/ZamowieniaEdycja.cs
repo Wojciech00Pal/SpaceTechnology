@@ -2,11 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
-using System.Linq;
 using System.Windows.Forms;
-using LinqToDB;
-using SklepElektroniczny1501.Space_TechnologyDataSetTableAdapters;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SklepElektroniczny1501
 {
@@ -101,8 +97,6 @@ namespace SklepElektroniczny1501
                         }
 
                         string query3 = "SELECT* FROM zamowienie_produkt where id_zamowienie=@zam_id";
-
-
                         using (SqlCommand command = new SqlCommand(query3, conn))
                         {
                             command.Parameters.AddWithValue("@zam_id", id);
@@ -111,10 +105,7 @@ namespace SklepElektroniczny1501
                             {
                                 dataTable.Load(command.ExecuteReader());
                                 dataGridView1.DataSource = dataTable;
-                            }catch(Exception er)
-                            {
-
-                            }
+                            }catch(Exception er){}
                         }
                         Sum(dataGridView1);
                     }
@@ -122,11 +113,10 @@ namespace SklepElektroniczny1501
                     {
                         MessageBox.Show("produkt istnieje w zamowieniu zmien jego ilosc w istniejacym rekordzie");
                     }
-
                 }
-
             }
         }
+
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
@@ -141,9 +131,7 @@ namespace SklepElektroniczny1501
                     producktEdycja.Show();
                     Hide();
                 }
-
             }
-
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {

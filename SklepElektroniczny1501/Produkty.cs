@@ -28,7 +28,6 @@ namespace SklepElektroniczny1501
                 Hide();
             }
         }
-
         private void Do_Sklepu_Click(object sender, EventArgs e)
         {
             Sklep sklep = new Sklep();
@@ -41,7 +40,6 @@ namespace SklepElektroniczny1501
             ProduktyEdycja producktEdycja = new ProduktyEdycja(-1);
             producktEdycja.Show();
             Hide();
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -53,7 +51,6 @@ namespace SklepElektroniczny1501
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (e.RowIndex != -1)
             {
                 ProduktyEdycja producktEdycja = new ProduktyEdycja(e.RowIndex);

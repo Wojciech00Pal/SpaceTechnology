@@ -52,12 +52,11 @@ namespace SklepElektroniczny1501
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                    conn.Open();
+                conn.Open();
                 //update
                 string query = string.Empty;
                 if (row_id != -1)
                 {
-
                      query = "UPDATE produkt SET nazwa = @nazwa, model = @model, opis = @opis, ilosc_dostepna = @ilosc, cena = @cena  WHERE id = " +
                         "(SELECT TOP 1 id FROM (SELECT id, ROW_NUMBER() OVER (ORDER BY id) AS row_num FROM produkt) t WHERE t.row_num = @rowNum)";
                 }

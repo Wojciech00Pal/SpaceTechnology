@@ -22,7 +22,6 @@ namespace SklepElektroniczny1501
         public ZamowieniePozycjeEdycja(int _prodId, int _zamId)
         {
             InitializeComponent();
-            
             prodId = _prodId;
             zamId = _zamId;
             LoadAmount();
@@ -64,8 +63,6 @@ namespace SklepElektroniczny1501
             zamowieniaEdycja.Show();
             this.Hide();
         }
-
-       
 
         private void Check(int ilosc)
         {
@@ -150,7 +147,6 @@ namespace SklepElektroniczny1501
                     cmd2.ExecuteNonQuery();
                 }
             }
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -159,11 +155,9 @@ namespace SklepElektroniczny1501
             {
                 Check(ilosc);//ilosc wprowadzona do zamowienia dla danego produktu
             }
-
             ZamowieniaEdycja zam = new ZamowieniaEdycja(zamId);
             zam.Show();
             this.Hide();
-
         }
     }
 }
