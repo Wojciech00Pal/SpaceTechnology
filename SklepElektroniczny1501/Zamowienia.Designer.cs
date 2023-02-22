@@ -39,6 +39,8 @@
             this.zamowienieTableAdapter = new SklepElektroniczny1501.Space_TechnologyDataSetTableAdapters.zamowienieTableAdapter();
             this.tableAdapterManager = new SklepElektroniczny1501.Space_TechnologyDataSetTableAdapters.TableAdapterManager();
             this.Do_Sklepu = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zamowienieBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.space_TechnologyDataSet)).BeginInit();
@@ -133,11 +135,31 @@
             this.Do_Sklepu.UseVisualStyleBackColor = true;
             this.Do_Sklepu.Click += new System.EventHandler(this.Do_Sklepu_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(354, 391);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(437, 16);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Aby dodać nowe zamówienie kliknij na pust wiersz ponizej wypelnionych ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(365, 426);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(240, 16);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "aby edytowac zamowienie kliknij na nie";
+            // 
             // Zamowienia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1287, 921);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.Do_Sklepu);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
@@ -166,5 +188,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn numerzamowieniaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn datazamowieniaDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button Do_Sklepu;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
