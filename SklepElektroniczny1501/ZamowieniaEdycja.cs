@@ -13,15 +13,16 @@ namespace SklepElektroniczny1501
     public partial class ZamowieniaEdycja : Form
     {
         private readonly int id;
+        private readonly bool nowe_Zam;
         int rowsCount = 0;
         string connectionString = @"Data SOURCE=(localdb)\MSSQLLocalDB;Initial Catalog=Space_Technology;Integrated Security=True";
         
-        public ZamowieniaEdycja(int id)
+        public ZamowieniaEdycja(int id, bool nowe_Zam=false)
         { 
             InitializeComponent();
             textBox1.Text = string.Format("{0:000}", id);
             this.id = id;
-
+            this.nowe_Zam = nowe_Zam;
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
@@ -61,27 +62,29 @@ namespace SklepElektroniczny1501
             {
                 DataGridViewCell editedCell = dataGridView1.CurrentCell;
                 var prodId = Convert.ToInt32(editedCell.Value);
-
+                
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     bool product_exist_in_order = false;
 
-                    string query1 = "SELECT COUNT(*) FROM zamowienie_produkt where id_produkt=@prod_id and id_zamowienie=@zam_id";
-                    using (SqlCommand command = new SqlCommand(query1, conn))
+                    if (!nowe_Zam)
                     {
-                        command.Parameters.AddWithValue("@prod_id", prodId);
-                        command.Parameters.AddWithValue("@zam_id", id);
-                        var num = (int)command.ExecuteScalar();
-                        if (num>0)
+                        string query1 = "SELECT COUNT(*) FROM zamowienie_produkt where id_produkt=@prod_id and id_zamowienie=@zam_id";
+                        using (SqlCommand command = new SqlCommand(query1, conn))
                         {
-                            product_exist_in_order = true;
+                            command.Parameters.AddWithValue("@prod_id", prodId);
+                            command.Parameters.AddWithValue("@zam_id", id);
+                            var num = (int)command.ExecuteScalar();
+                            if (num > 0)
+                            {
+                                product_exist_in_order = true;
+                            }
                         }
                     }
 
                     if (!product_exist_in_order)
                     {
-
                         string query2 = "INSERT INTO zamowienie_produkt (id_produkt, id_zamowienie, ilosc, cena) SELECT @prod_id, @id_zam, 0, cena from produkt where id=@prod_id";
                         try
                         {
