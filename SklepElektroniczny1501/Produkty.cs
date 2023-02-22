@@ -50,5 +50,16 @@ namespace SklepElektroniczny1501
             sklep.Show();
             this.Hide();
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex != -1)
+            {
+                ProduktyEdycja producktEdycja = new ProduktyEdycja(e.RowIndex);
+                producktEdycja.Show();
+                Hide();
+            }
+        }
     }
 }
